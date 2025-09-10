@@ -66,6 +66,38 @@ public class RootResponse {
         private String message = "잘못된 요청입니다";
     }
 
+    @Schema(description="인증 실패 응답 (401)")
+    public static class Unauthorized extends BaseResponse<Void> {
+        public Unauthorized() {
+            super();
+        }
+
+        @Schema(example="401")
+        private int status = 401;
+
+        @Schema(example="Unauthorized")
+        private String label = "Unauthorized";
+
+        @Schema(example="인증 실패입니다")
+        private String message = "인증 실패입니다";
+    }
+
+    @Schema(description="권한 없음 응답 (403)")
+    public static class Forbidden extends BaseResponse<Void> {
+        public Forbidden() {
+            super();
+        }
+    
+        @Schema(example="403")
+        private int status = 403;
+
+        @Schema(example="Forbidden")
+        private String label = "Forbidden";
+
+        @Schema(example="권한 없음입니다")
+        private String message = "권한 없음입니다";
+    }
+
     @Schema(description="리소스를 찾을 수 없음 응답 (404)")
     public static class NotFound extends BaseResponse<Void> {
         public NotFound() {
